@@ -1,0 +1,19 @@
+minimum_cumulusci_version: '3.12.2'
+project:
+    name: sfdx-einstein-nba
+    package:
+        name:  sfdx-einstein-nba
+        api_version: '48.0'
+    source_format: sfdx
+
+tasks:
+    robot:
+        options:
+            suites: robot/sfdx-einstein-nba/tests
+            options:
+                outputdir: robot/sfdx-einstein-nba/results
+
+    robot_testdoc:
+        options:
+            path: robot/sfdx-einstein-nba/tests
+            output: robot/sfdx-einstein-nba/doc/sfdx-einstein-nba_tests.html

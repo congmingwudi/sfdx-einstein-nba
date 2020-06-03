@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>Next Best Action samples</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>NBA Samples</label>
+    <navType>Standard</navType>
+    <tabs>standard-Recommendation</tabs>
+    <tabs>Education_Recommendations</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>NBA_Samples_UtilityBar</utilityBar>
+</CustomApplication>

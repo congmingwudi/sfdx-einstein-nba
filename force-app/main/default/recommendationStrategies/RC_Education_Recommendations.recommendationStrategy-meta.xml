@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecommendationStrategy xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Education Recommendations</label>
+    <recommendationLoad>
+        <label>Load Education Recommendations</label>
+        <name>Load_Education_Recommendations</name>
+        <condition>
+            <field>Name</field>
+            <operator>STARTS_WITH</operator>
+            <value>
+                <type>TEXT</type>
+                <value>Learn</value>
+            </value>
+        </condition>
+        <conditionLogic>or</conditionLogic>
+        <object>Recommendation</object>
+    </recommendationLoad>
+    <union>
+        <childNode>Load_Education_Recommendations</childNode>
+        <label>Output</label>
+        <name>Output_4b32180fb23c40a69189b3fbe67c481b</name>
+    </union>
+</RecommendationStrategy>

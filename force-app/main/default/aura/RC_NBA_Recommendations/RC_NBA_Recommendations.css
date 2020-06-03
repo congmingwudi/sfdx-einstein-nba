@@ -1,0 +1,10 @@
+/**
+ * Created by ryan.cox on 6/3/20.
+ */
+
+.THIS .errorMessage {
+	font-weight: bold;
+	color: #ff0000;
+	padding: 10px;
+	border: 1px solid #ff0000;
+}
