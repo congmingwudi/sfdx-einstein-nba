@@ -12,7 +12,15 @@
                 <value>Learn</value>
             </value>
         </condition>
-        <conditionLogic>or</conditionLogic>
+        <condition>
+            <field>Is_Active__c</field>
+            <operator>EQUALS</operator>
+            <value>
+                <type>BOOLEAN</type>
+                <value>true</value>
+            </value>
+        </condition>
+        <conditionLogic>and</conditionLogic>
         <object>Recommendation</object>
     </recommendationLoad>
     <union>

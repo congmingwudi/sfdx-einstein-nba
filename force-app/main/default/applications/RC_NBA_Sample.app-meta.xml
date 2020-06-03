@@ -11,7 +11,7 @@
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>NBA Samples</label>
     <navType>Standard</navType>
-    <tabs>standard-Recommendation</tabs>
+    <tabs>Recommendations</tabs>
     <tabs>Education_Recommendations</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>NBA_Samples_UtilityBar</utilityBar>

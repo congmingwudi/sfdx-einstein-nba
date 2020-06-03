@@ -15,7 +15,7 @@
             default :
                 columns = [
                     {label: 'Name', fieldName: 'Name', type: 'text', sortable: true, iconName: "standard:lead_list"},
-                    {label: 'Description', fieldName: 'Description', type: 'text', sortable: true, iconName: "standard:letterhead", cellAttributes: { alignment: 'left' } },
+                    //{label: 'Description', fieldName: 'Description', type: 'text', sortable: true, iconName: "standard:letterhead", cellAttributes: { alignment: 'left' } },
                     {label: 'Is Active?', fieldName: 'isActive', type: 'text', sortable: true, iconName: "custom:custom7", cellAttributes: { alignment: 'left' } },
                     {type:  'button', typeAttributes: {iconName: 'standard:endorsement', label: '', name: 'activate', disabled: false}, cellAttributes: { alignment: 'center' } },
                     {type:  'button', typeAttributes: {iconName: 'standard:first_non_empty', label: '', name: 'deactivate', disabled: false}, cellAttributes: { alignment: 'center' } },

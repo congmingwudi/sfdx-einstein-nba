@@ -2,7 +2,7 @@
  - Created by ryan.cox on 6/2/20.
  -->
 
-<aura:component description="RC_NBA_Recommendations" implements="lightning:availableForFlowScreens" access="global" controller="RC_NBA_RecommendationsController">
+<aura:component description="RC_NBA_Recommendations" implements="flexipage:availableForAllPageTypes, forceCommunity:availableForAllPageTypes, lightning:availableForFlowScreens" access="global" controller="RC_NBA_RecommendationsController">
 
     <!-- input parameters -->
     <aura:attribute name="recordType" type="String" access="global" default=""/>
