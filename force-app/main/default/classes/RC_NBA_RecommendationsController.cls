@@ -46,11 +46,16 @@ public with sharing class RC_NBA_RecommendationsController {
 
             // orgID
             String orgID = [SELECT Id from Organization LIMIT 1].Id;
+            // hard-coded for hpi so it will work in community
+            //String orgID = '00D6g000001Y1gBEAS';
 
             // domain
             String host = Url.getSalesforceBaseUrl().getHost();
             List<String> toks = host.split('\\.');
             String domain = toks.get(0);
+
+            // hard-coded to use the host org domain, rather than the community domain so the images will load the community
+            //String domain = 'hpiprmpov1';
 
             // urlPrefix
             String urlPrefix = 'https://' + domain + '--c.documentforce.com';

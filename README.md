@@ -1,7 +1,8 @@
 # sfdx-einstein-nba
 
-Add a brief description of this project here, in Markdown format.
-It will be shown on the main page of the project's GitHub repository.
+RC_NBA_Recommendations lightning component allows you to active/deactivate recommendations that displayed in a Next Best Action strategy. 
+
+See the 'NBA Samples' app. This component works also in Communities. 
 
 ## Development
 
