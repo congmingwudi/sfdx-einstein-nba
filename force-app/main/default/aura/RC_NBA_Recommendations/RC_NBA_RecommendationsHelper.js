@@ -15,12 +15,18 @@
     getRecommendations: function(component) {
 
         console.log(this.helperFile() + ' > getRecommendations');
+        var filter = component.get("v.filter");
 
         // isLoading controls the spinner to indicate processing
         component.set('v.isLoading', true);
 
         // create the action
         var action = component.get("c.getRecommendations"); // method on apex: RC_NBA_RecommendationsController
+        if ((filter != null) && (filter != '')) {
+            action.setParams({
+                "filter": filter
+            });
+        }
 
         // add callback behavior for when response is received
         action.setCallback(this, function(response) {

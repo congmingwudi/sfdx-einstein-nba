@@ -5,25 +5,30 @@
 public with sharing class RC_NBA_RecommendationsController {
 
     @AuraEnabled
-    public static List<Recommendation> getRecommendations() {
-        System.debug('RC_NBA_RecommendationsController > getRecommendations');
+    public static List<Recommendation> getRecommendations(String filter) {
+        System.debug('RC_NBA_RecommendationsController > getRecommendations - filter: ' + filter);
 
-        List<Recommendation> recommendations = [
-                SELECT
-                        AcceptanceLabel,
-                        ActionReference,
-                        CreatedBy.Name,
-                        CreatedDate,
-                        Description,
-                        Id,
-                        ImageId,
-                        IsActionActive,
-                        Is_Active__c,
-                        LastModifiedBy.Name,
-                        LastModifiedDate,
-                        Name,
-                        RejectionLabel
-                FROM Recommendation];
+        List<Recommendation> recommendations;
+
+        if ((filter != null) && (filter != '')) {
+            // filter recommendations
+            String filterString = '%' + filter + '%';
+            recommendations = [
+                    SELECT AcceptanceLabel, ActionReference, CreatedBy.Name, CreatedDate, Description,
+                            Id, ImageId, IsActionActive, Is_Active__c, LastModifiedBy.Name, LastModifiedDate,
+                            Name, RejectionLabel
+                    FROM Recommendation
+                    WHERE Name LIKE :filterString
+            ];
+        } else {
+            // all recommendations
+            recommendations = [
+                    SELECT AcceptanceLabel, ActionReference, CreatedBy.Name, CreatedDate, Description,
+                            Id, ImageId, IsActionActive, Is_Active__c, LastModifiedBy.Name, LastModifiedDate,
+                            Name, RejectionLabel
+                    FROM Recommendation
+            ];
+        }
 
         System.debug('RC_NBA_RecommendationsController > getRecommendations - recommendations (' + recommendations.size() + '): ' + recommendations);
 

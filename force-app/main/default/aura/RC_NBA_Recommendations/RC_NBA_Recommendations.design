@@ -3,4 +3,9 @@
  -->
 
 <design:component>
+
+    <!-- input parameters -->
+    <design:attribute name="record_PluralLabel" label="Label" />
+    <design:attribute name="filter" label="Filter Recommendations" Description="Filter Recommendations that contain this value" />
+
 </design:component>

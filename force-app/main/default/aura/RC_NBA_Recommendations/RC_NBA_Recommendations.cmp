@@ -8,6 +8,7 @@
     <aura:attribute name="recordType" type="String" access="global" default=""/>
     <aura:attribute name="record_Label" type="String" access="global" default="RECOMMENDATION"/>
     <aura:attribute name="record_PluralLabel" type="String" access="global" default="RECOMMENDATIONS"/>
+    <aura:attribute name="filter" type="String" default=""/>
 
     <!-- private attributes -->
     <aura:attribute name="record" type="Recommendation"/>

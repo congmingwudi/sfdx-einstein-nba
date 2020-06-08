@@ -5,7 +5,8 @@
 ({
 
     init: function(component, event, helper) {
-        console.log(helper.controllerFile() + ' > init');
+        var filter = component.get("v.filter");
+        console.log(helper.controllerFile() + ' > init - filter: ' + filter);
 
         // TABLE columns
         var columns = [];
