@@ -49,7 +49,7 @@
 
     }, // end getRecommendations
 
-   // TABLE OPERATIONS
+    // TABLE OPERATIONS
 
     setRecordTableData: function(component, recordList) {
 
@@ -190,6 +190,6 @@
             console.log(this.helperFile() + ' > updateRecommendationIsActive - no record selected');
         }
 
-    }, // end activeRecommendation
+    }, // end updateRecommendationIsActive
 
 });

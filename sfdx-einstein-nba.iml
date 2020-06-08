@@ -15,7 +15,9 @@
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/.sfdx/typings" />
+    </content>
     <content url="file://$MODULE_DIR$/force-app">
       <sourceFolder url="file://$MODULE_DIR$/force-app/main/default" isTestSource="false" />
     </content>

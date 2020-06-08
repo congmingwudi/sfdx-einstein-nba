@@ -1,0 +1,48 @@
+<!--
+ - Created by ryan.cox on 6/7/20.
+ -->
+
+<aura:component description="RC_NBA_Recommendation" controller="RC_NBA_RecommendationsController">
+
+    <!-- input parameters -->
+    <aura:attribute name="record" type="Recommendation" />
+
+    <!-- private attributes -->
+    <aura:attribute name="isActive" type="Boolean" />
+    <aura:attribute name="isLoading" type="Boolean" default="false"/>
+
+    <aura:if isTrue="{! v.isLoading }">
+        <lightning:spinner alternativeText="Loading"/>
+    </aura:if>
+
+    <!-- container -->
+    <div class="slds-p-around--small">
+
+        <lightning:layout verticalAlign="start" class="slds-page-header" >
+
+            <lightning:layoutItem>
+                <lightning:icon iconName="standard:investment_account" alternativeText="Recommendation" size="x-small"/>
+            </lightning:layoutItem>
+
+            <lightning:layoutItem flexibility="auto" class="itemTitle slds-text-heading_small slds-p-horizontal_small">
+                {!v.record.Name}
+            </lightning:layoutItem>
+
+        </lightning:layout>
+
+        <lightning:layout>
+            <lightning:layoutItem flexibility="auto" class="slds-p-horizontal_medium">
+                {!v.record.Description}
+            </lightning:layoutItem>
+        </lightning:layout>
+
+        <lightning:layout>
+            <lightning:layoutItem flexibility="auto" class="slds-p-around_medium">
+                <lightning:input type="toggle" label="Active" name="isActive" checked="{!v.record.Is_Active__c}"
+                                 onchange="{!c.isActiveChanged}" value="{!v.isActive}" />
+            </lightning:layoutItem>
+        </lightning:layout>
+
+    </div>
+
+</aura:component>

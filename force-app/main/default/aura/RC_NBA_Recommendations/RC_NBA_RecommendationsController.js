@@ -14,9 +14,9 @@
 
             default :
                 columns = [
-                    {label: 'Name', fieldName: 'Name', type: 'text', sortable: true, iconName: "standard:lead_list"},
+                    {label: 'Name', fieldName: 'Name', type: 'text', sortable: true, iconName: "standard:investment_account"},
                     //{label: 'Description', fieldName: 'Description', type: 'text', sortable: true, iconName: "standard:letterhead", cellAttributes: { alignment: 'left' } },
-                    {label: 'Is Active?', fieldName: 'isActive', type: 'text', sortable: true, iconName: "custom:custom7", cellAttributes: { alignment: 'left' } },
+                    {label: 'Is Active?', fieldName: 'isActive', type: 'text', sortable: true, iconName: "standard:marketing_actions", cellAttributes: { alignment: 'left' } },
                     {type:  'button', typeAttributes: {iconName: 'standard:endorsement', label: '', name: 'activate', disabled: false}, cellAttributes: { alignment: 'center' } },
                     {type:  'button', typeAttributes: {iconName: 'standard:first_non_empty', label: '', name: 'deactivate', disabled: false}, cellAttributes: { alignment: 'center' } },
                 ]
@@ -30,6 +30,17 @@
         helper.getRecommendations(component);
 
     }, // end init
+
+    handleTabActive: function (component, event, helper) {
+        var tab = event.getSource().get('v.id');
+        console.log(helper.controllerFile() + ' > handleTabActive - tab: ' + tab);
+        switch (tab) {
+            case 'Table' :
+                // refresh recommendations
+                helper.getRecommendations(component);
+                break;
+        }
+    }, // end handleTabActive
 
    // TABLE OPERATIONS
 
