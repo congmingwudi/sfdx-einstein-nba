@@ -12,6 +12,8 @@
     <!-- private attributes -->
     <aura:attribute name="record" type="Recommendation"/>
     <aura:attribute name="recordList" type="List" default="[]"/>
+    <aura:attribute name="imageMap" type="Map" />
+    <aura:attribute name="recordsLoaded" type="Boolean" default="false" />
     <aura:attribute name="errorMessage" type="String" default=""/>
 
     <!-- handlers -->
@@ -44,10 +46,10 @@
 
                     <lightning:tab label="Tiles" id="Tiles" onactive="{!c.handleTabActive}">
 
-                        <aura:if isTrue="{!v.recordList}">
+                        <aura:if isTrue="{!v.recordsLoaded}">
 
                             <aura:iteration items="{!v.recordList}" var="record">
-                                <c:RC_NBA_Recommendation record="{!record}" />
+                                <c:RC_NBA_Recommendation record="{!record}" imageMap="{!v.imageMap}" />
                             </aura:iteration>
 
                         </aura:if>
@@ -56,8 +58,6 @@
 
                     <lightning:tab label="Table" id="Table" onactive="{!c.handleTabActive}">
 
-                        <!-- TABLE -->
-                        <!-- the container element determine the height of the datatable -->
                         <div style="height: 300px" class="slds-scrollable">
                             <lightning:datatable aura:id="recordTable"
                                                  data="{! v.tableData }"
@@ -74,7 +74,6 @@
                                                  onsave="{! c.handleSave }"
                                                  class="slds-p-around_medium" />
                         </div>
-                        <!-- / TABLE -->
 
                         <aura:if isTrue="{! v.isLoading }">
                             <lightning:spinner alternativeText="Loading"/>

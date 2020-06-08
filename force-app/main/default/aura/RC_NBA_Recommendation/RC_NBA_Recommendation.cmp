@@ -6,43 +6,57 @@
 
     <!-- input parameters -->
     <aura:attribute name="record" type="Recommendation" />
+    <aura:attribute name="imageMap" type="Map" />
+    <aura:attribute name="imageURL" type="String" />
 
     <!-- private attributes -->
     <aura:attribute name="isActive" type="Boolean" />
     <aura:attribute name="isLoading" type="Boolean" default="false"/>
 
+    <!-- handlers -->
+    <aura:handler name="init" action="{!c.init}" value="{!this}"/>
+
+    <!-- loading spinner -->
     <aura:if isTrue="{! v.isLoading }">
         <lightning:spinner alternativeText="Loading"/>
     </aura:if>
 
     <!-- container -->
-    <div class="slds-p-around--small">
+    <aura:if isTrue="{!v.imageURL}">
+        <div class="slds-box slds-p-around--small">
 
-        <lightning:layout verticalAlign="start" class="slds-page-header" >
+            <lightning:layout verticalAlign="start" class="slds-page-header" >
 
-            <lightning:layoutItem>
-                <lightning:icon iconName="standard:investment_account" alternativeText="Recommendation" size="x-small"/>
-            </lightning:layoutItem>
+                <lightning:layoutItem>
+                    <lightning:icon iconName="standard:investment_account" alternativeText="Recommendation" size="x-small"/>
+                </lightning:layoutItem>
 
-            <lightning:layoutItem flexibility="auto" class="itemTitle slds-text-heading_small slds-p-horizontal_small">
-                {!v.record.Name}
-            </lightning:layoutItem>
+                <lightning:layoutItem flexibility="auto" class="itemTitle slds-text-heading_small slds-p-horizontal_small">
+                    {!v.record.Name}
+                </lightning:layoutItem>
 
-        </lightning:layout>
+            </lightning:layout>
 
-        <lightning:layout>
-            <lightning:layoutItem flexibility="auto" class="slds-p-horizontal_medium">
-                {!v.record.Description}
-            </lightning:layoutItem>
-        </lightning:layout>
+            <lightning:layout>
+                <lightning:layoutItem flexibility="auto" class="slds-p-horizontal_medium">
+                    {!v.record.Description}
+                </lightning:layoutItem>
+            </lightning:layout>
 
-        <lightning:layout>
-            <lightning:layoutItem flexibility="auto" class="slds-p-around_medium">
-                <lightning:input type="toggle" label="Active" name="isActive" checked="{!v.record.Is_Active__c}"
-                                 onchange="{!c.isActiveChanged}" value="{!v.isActive}" />
-            </lightning:layoutItem>
-        </lightning:layout>
+            <lightning:layout>
+                <lightning:layoutItem flexibility="auto" class="slds-p-horizontal_medium">
+                    <img src="{!v.imageURL}" class="recommendationImage"/>
+                </lightning:layoutItem>
+            </lightning:layout>
 
-    </div>
+            <lightning:layout>
+                <lightning:layoutItem flexibility="auto" class="slds-p-around_medium">
+                    <lightning:input type="toggle" label="Active" name="isActive" checked="{!v.record.Is_Active__c}"
+                                     onchange="{!c.isActiveChanged}" value="{!v.isActive}" />
+                </lightning:layoutItem>
+            </lightning:layout>
+
+        </div>
+    </aura:if>
 
 </aura:component>

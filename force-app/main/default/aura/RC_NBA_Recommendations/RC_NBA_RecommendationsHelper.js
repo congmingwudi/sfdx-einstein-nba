@@ -36,6 +36,9 @@
                 // set table data
                 this.setRecordTableData(component, recordList);
 
+                // get imageMap of URLs
+                this.getRecommendationImageURLs(component, recordList);
+
                 // stop the spinner
                 component.set('v.isLoading', false);
             }
@@ -48,6 +51,45 @@
         $A.enqueueAction(action);
 
     }, // end getRecommendations
+
+    getRecommendationImageURLs: function(component, recordList) {
+
+        console.log(this.helperFile() + ' > getRecommendationImageURLs');
+
+        // imageIDs
+        var imageIDs = [];
+        for (const rec of recordList) {
+            imageIDs.push(rec.ImageId);
+        }
+
+        // create the action
+        var action = component.get("c.getRecommendationImageURLs"); // method on apex: RC_NBA_RecommendationsController
+        action.setParams({
+            "imageIDs": imageIDs
+        });
+
+        // add callback behavior for when response is received
+        action.setCallback(this, function(response) {
+            var state = response.getState();
+            console.log(this.helperFile() + ' > getRecommendationImageURLs - response: ' + state);
+            if (state === "SUCCESS") {
+
+                // set recommendations
+                let imageMap = response.getReturnValue();
+            	console.log(this.helperFile() + ' > getRecommendationImageURLs - imageMap: ' + JSON.stringify(imageMap));
+                component.set("v.imageMap", imageMap);
+                console.log(this.helperFile() + ' > getRecommendationImageURLs - recordsLoaded: true');
+                component.set("v.recordsLoaded", true);
+            }
+            else {
+                console.log(this.helperFile() + ' > getRecommendationImageURLs - failed with state: ' + state);
+            }
+        });
+
+        // send action off to be executed
+        $A.enqueueAction(action);
+
+    }, // end getRecommendationImageURLs
 
     // TABLE OPERATIONS
 

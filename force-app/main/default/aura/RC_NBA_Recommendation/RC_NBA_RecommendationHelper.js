@@ -41,7 +41,7 @@
                     else {
                         console.log(this.helperFile() + ' > updateRecommendationIsActive - failed with state: ' + state);
                     }
-                    
+
                     // stop the spinner
                     component.set('v.isLoading', false);
                 });
